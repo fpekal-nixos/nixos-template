@@ -28,7 +28,7 @@
 		in
 		{
 			systems.blank = blank_system;
-			systems.minimal = self.systems.blank.extend { modules = [ ./modules ./overlays ./packages ./users ./hosts ./shells ]; };
+			systems.minimal = self.systems.blank.extend { modules = [ ./modules ./overlays ./packages ./users ./hosts ./shells ./options ]; };
 
 			nixosConfigurations = {
 				default = self.systems.minimal.mksystem { system = "x86_64-linux"; };

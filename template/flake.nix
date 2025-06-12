@@ -11,7 +11,7 @@
 		{
 			systems.minimal = nixosBlankSystem.systems.blank.extend { modules = [ ./modules ./overlays ./packages ./users ./hosts ./shells ./options ]; };
 
-			nixosConfigurations.default = self.systems.minimal.mksystem { system = "x86_64-linux"; };
+			nixosConfigurations.default = self.systems.minimal.mksystem { system = "x86_64-linux"; specialArgs = { host = "nixos"; users = []; }; };
 		};
 }
 

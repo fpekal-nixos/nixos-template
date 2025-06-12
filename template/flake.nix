@@ -9,9 +9,9 @@
 	outputs =
 		{ self, nixosBlankSystem, ... }:
 		{
-			systems.minimal = nixosBlankSystem.systems.blank.extend { modules = [ ./modules ./overlays ./packages ./users ./hosts ./shells ./options ]; };
+			systems.my_system = nixosBlankSystem.systems.minimal.extend { modules = [ ./modules ./overlays ./packages ./users ./hosts ./shells ./options ]; };
 
-			nixosConfigurations.default = self.systems.minimal.mksystem { system = "x86_64-linux"; specialArgs = { host = "nixos"; users = []; }; };
+			nixosConfigurations.default = self.systems.my_system.mksystem { system = "x86_64-linux"; specialArgs = { host = "nixos"; users = []; }; };
 		};
 }
 

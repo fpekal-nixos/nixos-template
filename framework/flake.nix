@@ -28,5 +28,15 @@
 		in
 		{
 			systems.blank = blank_system;
+
+			systems.minimal = self.systems.blank.extend {
+				modules = [
+					{
+						nix.settings.experimental-features = [
+							"flakes" "nix-command"
+						];
+					}
+				];
+			};
 		};
 }

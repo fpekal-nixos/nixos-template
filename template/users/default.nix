@@ -1,5 +1,5 @@
 { users, ... }:
 {
 	imports =
-		(builtins.map (username: { name = username; value = ./${username}; }) users);
+		(builtins.map (username: ./${username}) users);
 }
